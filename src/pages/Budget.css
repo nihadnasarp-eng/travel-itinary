@@ -1,0 +1,113 @@
+.budget-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.budget-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.budget-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total .card-icon {
+    background: rgba(45, 212, 191, 0.1);
+    color: var(--accent-primary);
+}
+
+.spent .card-icon {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--danger);
+}
+
+.remaining .card-icon {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.card-info .label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.card-info .value {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.budget-table {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: var(--spacing-md);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--glass-border);
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.table-row:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.destination {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.status-badge.under {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.status-badge.over {
+    background: rgba(244, 63, 94, 0.1);
+    color: var(--danger);
+}
+
+.empty-table {
+    padding: 60px;
+    text-align: center;
+    color: var(--text-muted);
+}

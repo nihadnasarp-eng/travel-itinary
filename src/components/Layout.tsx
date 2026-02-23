@@ -4,9 +4,11 @@ import './Layout.css';
 
 interface LayoutProps {
     children: ReactNode;
+    activeTab: string;
+    onTabChange: (tab: string) => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange }) => {
     return (
         <div className="layout-container">
             <aside className="sidebar glass">
@@ -18,35 +20,51 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </div>
 
                 <nav className="nav-menu">
-                    <a href="#" className="nav-item active">
+                    <button
+                        onClick={() => onTabChange('dashboard')}
+                        className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`}
+                    >
                         <LayoutDashboard size={20} />
                         <span>Dashboard</span>
-                    </a>
-                    <a href="#" className="nav-item">
+                    </button>
+                    <button
+                        onClick={() => onTabChange('itinerary')}
+                        className={`nav-item ${activeTab === 'itinerary' ? 'active' : ''}`}
+                    >
                         <Map size={20} />
                         <span>My Trips</span>
-                    </a>
-                    <a href="#" className="nav-item">
+                    </button>
+                    <button
+                        onClick={() => onTabChange('budget')}
+                        className={`nav-item ${activeTab === 'budget' ? 'active' : ''}`}
+                    >
                         <Wallet size={20} />
                         <span>Budget</span>
-                    </a>
-                    <a href="#" className="nav-item">
+                    </button>
+                    <button
+                        onClick={() => onTabChange('documents')}
+                        className={`nav-item ${activeTab === 'documents' ? 'active' : ''}`}
+                    >
                         <FileText size={20} />
                         <span>Documents</span>
-                    </a>
+                    </button>
                 </nav>
 
                 <div className="nav-footer">
-                    <a href="#" className="nav-item">
+                    <button
+                        onClick={() => onTabChange('settings')}
+                        className={`nav-item ${activeTab === 'settings' ? 'active' : ''}`}
+                    >
                         <Settings size={20} />
                         <span>Settings</span>
-                    </a>
+                    </button>
                     <button className="nav-item logout">
                         <LogOut size={20} />
                         <span>Logout</span>
                     </button>
                 </div>
             </aside>
+
 
             <main className="main-content">
                 <header className="topbar glass">
